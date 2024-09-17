@@ -1,0 +1,14 @@
+#spring.application.name=lbeuraka
+spring:
+ application:
+  name: lbeureka
+
+server:
+ port: 8761
+
+eureka:
+ client:
+  registerWithEureka: false
+  fetchRegistry: false
+ instance:
+  hostname: eureka

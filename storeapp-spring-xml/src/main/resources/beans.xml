@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define beans for grocery items -->
+    <bean id="egg1" class="spring.core.ioc.Egg">
+        <constructor-arg value="101"/>
+        <constructor-arg value="grade A"/>
+        <constructor-arg value="30"/>
+        <constructor-arg value="7"/>
+    </bean>
+    <bean id="egg2" class="spring.core.ioc.Egg">
+        <constructor-arg value="103"/>
+        <constructor-arg value="grade B"/>
+        <constructor-arg value="30"/>
+        <constructor-arg value="6"/>
+    </bean>
+    <bean id="egg3" class="spring.core.ioc.Egg">
+        <constructor-arg value="104"/>
+        <constructor-arg value="grade C"/>
+        <constructor-arg value="30"/>
+        <constructor-arg value="5"/>
+    </bean>
+
+    <bean id="milk1" class="spring.core.ioc.Milk">
+        <constructor-arg value="201"/>
+        <constructor-arg value="Milk 1"/>
+        <constructor-arg value="30"/>
+        <constructor-arg value="35"/>
+    </bean>
+    <bean id="milk2" class="spring.core.ioc.Milk">
+        <constructor-arg value="202"/>
+        <constructor-arg value="Milk 2"/>
+        <constructor-arg value="30"/>
+        <constructor-arg value="30"/>
+    </bean>
+    <bean id="milk3" class="spring.core.ioc.Milk">
+        <constructor-arg value="203"/>
+        <constructor-arg value="Milk 3"/>
+        <constructor-arg value="10"/>
+        <constructor-arg value="27"/>
+    </bean>
+
+    <bean id="chocolate1" class="spring.core.ioc.Chocolate">
+        <constructor-arg value="301"/>
+        <constructor-arg value="Munch"/>
+        <constructor-arg value="30"/>
+        <constructor-arg value="30"/>
+    </bean>
+    <bean id="chocolate2" class="spring.core.ioc.Chocolate">
+        <constructor-arg value="302"/>
+        <constructor-arg value="DiaryMilk"/>
+        <constructor-arg value="0"/>
+        <constructor-arg value="20"/>
+    </bean>
+
+    <bean id="apple1" class="spring.core.ioc.Apple">
+        <constructor-arg value="401"/>
+        <constructor-arg value="Apple Type1"/>
+        <constructor-arg value="10"/>
+        <constructor-arg value="150"/>
+    </bean>
+    <bean id="apple2" class="spring.core.ioc.Apple">
+        <constructor-arg value="402"/>
+        <constructor-arg value="Apple Type2"/>
+        <constructor-arg value="50"/>
+        <constructor-arg value="100"/>
+    </bean>
+
+    <bean id="bread1" class="spring.core.ioc.Bread">
+        <constructor-arg value="501"/>
+        <constructor-arg value="Modern"/>
+        <constructor-arg value="55"/>
+    </bean>
+    <bean id="bread2" class="spring.core.ioc.Bread">
+        <constructor-arg value="502"/>
+        <constructor-arg value="Fresh"/>
+        <constructor-arg value="50"/>
+    </bean>
+
+    <!-- Define collections of grocery items -->
+    <bean id="eggs" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="egg1"/>
+                <ref bean="egg2"/>
+                <ref bean="egg3"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="milks" class="java.util.HashSet">
+        <constructor-arg>
+            <set>
+                <ref bean="milk1"/>
+                <ref bean="milk2"/>
+                <ref bean="milk3"/>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="chocolates" class="java.util.LinkedList">
+        <constructor-arg>
+            <list>
+                <ref bean="chocolate1"/>
+                <ref bean="chocolate2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id="apples" class="java.util.TreeSet">
+        <constructor-arg>
+            <set>
+                <ref bean="apple1"/>
+                <ref bean="apple2"/>
+            </set>
+        </constructor-arg>
+    </bean>
+
+    <bean id="breads" class="java.util.LinkedList">
+        <constructor-arg>
+            <list>
+                <ref bean="bread1"/>
+                <ref bean="bread2"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!-- Define HashMap to store grocery items -->
+    <bean id="grocStore" class="java.util.HashMap">
+        <constructor-arg>
+            <map>
+                <entry key="1" value-ref="eggs"/>
+                <entry key="2" value-ref="milks"/>
+                <entry key="3" value-ref="chocolates"/>
+                <entry key="4" value-ref="apples"/>
+                <entry key="5" value-ref="breads"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+</beans>
